@@ -88,21 +88,40 @@ header > p{
 
 .keyboard-container{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 500px;
-  gap: 3px;
+}
+
+.keyboard-container > div{
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 2px;
+  padding: 20px;
 }
 
 .key-container{
-  height: 45px;
-  width: 45px;
+  height: 42px;
+  width: 42px;
   text-align: center;
   padding: 10px;
   font-weight:  700;
   border-radius: 4px;
   background-color: #FCBA29;
+}
+
+.keyboard-container > div > .new-game{
+  
+  padding: 5px 15px;
+  width: 228px;
+  height: 40px;
+  font-weight: 700;
+  background-color: #11B5E5;
+  border-radius: 4px;
+  outline: none;
 }
 
 

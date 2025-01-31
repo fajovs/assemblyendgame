@@ -9,5 +9,12 @@ export default function Input() {
     );
   });
 
-  return <section className="keyboard-container">{inputLetter}</section>;
+  return (
+    <section className="keyboard-container">
+      <div>{inputLetter}</div>
+      <div>
+        <button className="new-game">New Game</button>
+      </div>
+    </section>
+  );
 }
