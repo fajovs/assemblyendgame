@@ -29,7 +29,7 @@ header {
   padding: 15px;
 }
 
-header > h1 {
+header > h2 {
   margin: 0;
 }
 
@@ -39,14 +39,11 @@ header > p{
 }
 
 .message-box {
-  background-color: #10a95b;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80px;
-
-  padding: 5px 10px;
+  height: 65px;
   border-radius: 4px;
   width: 350px;
 }
@@ -63,25 +60,40 @@ header > p{
 .chip {
   border-radius: 3px;
   padding: 4.5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.chip.lost:before {
+  content: "💀";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .word-container{
   display: flex;
   max-width: 350px;
-  padding: 30px;
+  padding: 20px;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .letter-box{
-  height: 40px;
-  width: 40px;
+  min-height: 45px;
+  min-width: 40px;
   text-align: center;
   padding: 10px;
   background-color: #323232;
   color: #F9F4DA;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   border-bottom: #F9F4DA 1px solid;
 }
@@ -113,6 +125,14 @@ header > p{
   background-color: #FCBA29;
 }
 
+.wrong{
+  background-color: #EC5D49;
+}
+
+.correct{
+  background-color: #10A95B;
+}
+
 .keyboard-container > div > .new-game{
   
   padding: 5px 15px;
@@ -123,5 +143,19 @@ header > p{
   border-radius: 4px;
   outline: none;
 }
+
+.langlost{
+  background-color: #7A5EA7;
+}
+
+.gamewon{
+  background-color: #10A95B;
+}
+
+.gamelost{
+  background-color: #BA2A2A;
+}
+
+
 
 
