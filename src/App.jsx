@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { languages } from "./data/laguage";
 import clsx from "clsx";
 import Confetti from 'react-confetti'
 
 
 function App() {
-  const [currentWord, setCurrentWord] = useState("aaaa")
+  const [currentWord, setCurrentWord] = useState(" ")
   const [guessedLetters, setGuessedLetters] = useState([])
   
   const letters = "abcdefghijklmnopqrstuvwxyz".split("")
@@ -14,8 +14,22 @@ function App() {
   const isGameLost = guessedLetters.filter(letter => !currentWord.includes(letter)).length === languages.length
   const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
   const isGameOver = isGameWon || isGameLost
+  
+  const fetchData = async () => { 
+    try{
+      const response = await fetch("https://random-word-api.herokuapp.com/word")
+      const result = await response.json()
+      setCurrentWord(result[0])
+    }catch(error){
+      console.log(error.message)
+    }
+  }
 
+  useEffect(() =>{
+     
+    fetchData()
 
+  },[])
 
   const languageElements = languages.map((lang, index) => {
     const styles = {
@@ -91,7 +105,7 @@ function App() {
         <section className="keyboard-container">
           <div>{inputLetter}</div>
           <div>
-            {isGameOver && <button className="new-game" onClick={()=>{setCurrentWord("sample"); setGuessedLetters([]);}}>New Game</button>}
+            {isGameOver && <button className="new-game" onClick={()=>{fetchData(); setGuessedLetters([]);}}>New Game</button>}
           </div>
         </section>
 
